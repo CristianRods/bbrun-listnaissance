@@ -1,4 +1,4 @@
-# olmo-listnaissance-private
+# bbrun-listnaissance-private
 
-Simple page for Olmo list de naissance. 
+Simple page for a baby list de naissance. 
 Your father rocks muther-ducker! 
