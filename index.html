@@ -11,10 +11,11 @@
     .card{background:#fff;padding:15px;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
     .claimed{opacity:.6;background:#eee}.price{font-weight:bold;color:#6200ee}
     .store{display:block;margin:10px 0;color:#03dac6;text-decoration:none}
-    .badge{background:#e8f5e9;padding:8px;border-radius:4px;margin-top:10px}
+    .badge{background:#e8f5e9;padding:8px;border-radius:4px;margin-top:10px;display:flex;justify-content:space-between;align-items:center}
     .actions{margin-top:10px;display:flex;gap:5px}input{padding:5px;flex:1}
     button{padding:6px 12px;background:#6200ee;color:#fff;border:none;border-radius:4px;cursor:pointer}
-    button.unclaim{background:#d32f2f}#err-msg{color:red;display:none}
+    #err-msg{color:red;display:none}
+    #note{text-align:center;font-size:.85rem;color:#666;margin:10px 0 0}
   </style>
 </head>
 <body>
@@ -24,6 +25,7 @@
   </div>
   <div id="app">
     <h1 id="title"></h1><p id="subtitle"></p><p id="progress" style="font-weight:bold"></p>
+    <p id="note"></p>
     <section id="grid" class="grid"></section>
     <footer style="text-align:center;margin-top:40px;color:#666"><p id="footer-text"></p></footer>
   </div>
@@ -45,35 +47,37 @@
       { id:"cape-bain", name_fr:"Cape de bain", name_es:"Capa de baño", price:35.90, link:"https://www.lepetitsouk.fr/p/cape-de-bain-eponge-ecru-petites-souris.html" },
       { id:"gant-toilette", name_fr:"Gant de toilette", name_es:"Manopla de baño", price:10.90, link:"https://www.lepetitsouk.fr/p/gant-de-toilette-ecru-eponge-petites-souris.html" },
       { id:"bavoir-nouer", name_fr:"Bavoir à nouer", name_es:"Babero con lazo", price:14.90, link:"https://www.lepetitsouk.fr/p/bavoir-a-nouer-eponge-petites-souris.html" },
-      { id:"lingettes", name_fr:"Lingettes lavables (lot de 5)", name_es:"Toallitas reutilizables (pack de 5)", price:14.90, link:"https://www.lot-5-lingettes-lavables-eponge-coton-petites-souris.html" },
+      { id:"lingettes", name_fr:"Lingettes lavables (lot de 5)", name_es:"Toallitas reutilizables (pack de 5)", price:14.90, link:"https://www.lepetitsouk.fr/p/lot-5-lingettes-lavables-eponge-coton-petites-souris.html" },
       { id:"langes", name_fr:"Lot de langes (x3)", name_es:"Pack de muselinas (3)", price:26, link:"https://www.little-crevette.fr/langes/2242-lot-de-3-langes-bebe-coton-bio-pom-pouce.html" },
       { id:"gigoteuse", name_fr:"Gigoteuse d'été", name_es:"Saco de dormir de verano", price:59, link:"https://www.little-crevette.fr/gigoteuse-ete/2091-gigoteuse-ete-bebe-percale-de-coton-bio-colin.html" },
       { id:"tapis-langer", name_fr:"Tapis à langer imperméable", name_es:"Tapete de cambio impermeable", price:39.95, link:"https://www.nobodinoz.com/fr/waterproof-changing-pad-mozart-opera-fruits.html" },
       { id:"sac-langer", name_fr:"Sac à langer imperméable", name_es:"Bolsa de pañales impermeable", price:89.95, link:"https://www.nobodinoz.com/fr/sac-maternite-opera-green-tea.html" },
       { id:"peluche-ours", name_fr:"Peluche ours taille moyenne", name_es:"Osito de peluche tamaño mediano", price:30.00, link:"https://fr.jellycat.com/bartholomew-bear/" },
-      { "id":"album-photo-tissu", "name_fr":"Album photo en tissu bébé", "name_es":"Álbum de fotos de tela para bebé", "price":22.90, "link":"https://www.lepetitsouk.fr/p/album-photo-tissu-bebe-petites-souris.html" },
-      { "id":"livre-de-bain", "name_fr":"Livre de bain magique", "name_es":"Libro de baño mágico", "price":12.90, "link":"https://www.lepetitsouk.fr/p/livre-de-bain-magique-petites-souris.html" },
-      { "id":"protege-carnet-sante", "name_fr":"Protège carnet de santé", "name_es":"Funda del cuaderno de salud", "price":24.90, "link":"https://www.lepetitsouk.fr/p/protege-carnet-de-sante-petites-souris.html" },
-      { "id":"trousse-toilette", "name_fr":"Trousse de toilette", "name_es":"Neceser de aseo", "price":29.90, "link":"https://www.lepetitsouk.fr/p/trousse-toilette-jaune-vanity-petites-souris.html" }
+      { id:"album-photo-tissu", name_fr:"Album photo en tissu bébé", name_es:"Álbum de fotos de tela para bebé", price:22.90, link:"https://www.lepetitsouk.fr/p/album-photo-tissu-bebe-petites-souris.html" },
+      { id:"livre-de-bain", name_fr:"Livre de bain magique", name_es:"Libro de baño mágico", price:12.90, link:"https://www.lepetitsouk.fr/p/livre-de-bain-magique-petites-souris.html" },
+      { id:"protege-carnet-sante", name_fr:"Protège carnet de santé", name_es:"Funda del cuaderno de salud", price:24.90, link:"https://www.lepetitsouk.fr/p/protege-carnet-de-sante-petites-souris.html" },
+      { id:"trousse-toilette", name_fr:"Trousse de toilette", name_es:"Neceser de aseo", price:29.90, link:"https://www.lepetitsouk.fr/p/trousse-toilette-jaune-vanity-petites-souris.html" }
     ];
 
     const ACCESS_CODE = "RUNCOL2026!bebeCadeAU";
     const T = {
       fr:{
-        title:"Liste de naissance 💜", subtitle:"Choisissez un cadeau et marquez-le pour éviter les doublons",
+        title:"Liste de naissance 💜", subtitle:"Choisissez un cadeau et marquez-le pour éviter les doublons. Pour la livraison, demandez l'addresse aux parents!",
         enter:"Code secret :", passBtn:"Accéder", wrong:"Code incorrect",
-        buy:"🎁 Je l'offre", unclaim:"Annuler", claimedBy:"Réservé par",
+        buy:"🎁 Je l'offre", claimedBy:"Réservé par",
         shop:"Voir en boutique", guest:"Votre prénom (optionnel)",
         progress:(a,b)=>`${a}/${b} cadeaux réservés`,
+        note:"Les réservations sont définitives — pour modifier, contactez les parents 😊",
         footer:"Partagez ce lien uniquement avec la famille et les amis proches 💜",
         dbError:"⚠️ Problème de connexion à la base — vérifiez les règles Firestore."
       },
       es:{
-        title:"Lista de nacimiento 💜", subtitle:"Elige un regalo y márcalo para evitar duplicados",
+        title:"Lista de nacimiento 💜", subtitle:"Elige un regalo y márcalo para evitar duplicados. Para la dirección de envío, pregunta a los papas!",
         enter:"Código secreto:", passBtn:"Entrar", wrong:"Código incorrecto",
-        buy:"🎁 Lo regalo yo", unclaim:"Cancelar", claimedBy:"Reservado por",
+        buy:"🎁 Lo regalo yo", claimedBy:"Reservado por",
         shop:"Ver en la tienda", guest:"Tu nombre (opcional)",
         progress:(a,b)=>`${a}/${b} regalos reservados`,
+        note:"Las reservas son definitivas — para modificar, contactad con los papás 😊",
         footer:"Comparte este enlace solo con familiares y amigos cercanos 💜",
         dbError:"⚠️ Problema de conexión con la base — revisa las reglas de Firestore."
       }
@@ -95,6 +99,7 @@
       document.documentElement.lang = lang;
       $("#title").textContent = t.title;
       $("#subtitle").textContent = t.subtitle;
+      $("#note").textContent = t.note;
       $("#enter-text").textContent = t.enter;
       $("#pass-btn").textContent = t.passBtn;
       $("#footer-text").textContent = t.footer;
@@ -114,7 +119,6 @@
           ${claimed
             ? `<div class="badge">
                  <span>✅ ${t.claimedBy}: <strong>${state.claimed_by || "—"}</strong></span>
-                 <button class="unclaim" data-id="${g.id}">${t.unclaim}</button>
                </div>`
             : `<div class="actions">
                  <input id="name-${g.id}" placeholder="${t.guest}">
@@ -129,14 +133,6 @@
           const who = document.getElementById(`name-${id}`).value.trim() || "?";
           try {
             await setDoc(doc(db,"gifts",id),{ status:"claimed", claimed_by:who, claimed_at:new Date().toISOString() }, { merge:true });
-          } catch(e){ console.error(e); alert(T[lang].dbError); }
-        };
-      });
-
-      document.querySelectorAll(".unclaim").forEach(btn=>{
-        btn.onclick = async ()=>{
-          try {
-            await setDoc(doc(db,"gifts",btn.dataset.id),{ status:"available", claimed_by:"", claimed_at:null }, { merge:true });
           } catch(e){ console.error(e); alert(T[lang].dbError); }
         };
       });
