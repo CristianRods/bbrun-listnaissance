@@ -44,21 +44,27 @@
     };
 
     const GIFTS = [
-      { id:"cape-bain", name_fr:"Cape de bain", name_es:"Capa de baño", price:35.90, link:"https://www.lepetitsouk.fr/p/cape-de-bain-eponge-ecru-petites-souris.html" },
-      { id:"gant-toilette", name_fr:"Gant de toilette", name_es:"Manopla de baño", price:10.90, link:"https://www.lepetitsouk.fr/p/gant-de-toilette-ecru-eponge-petites-souris.html" },
-      { id:"bavoir-nouer", name_fr:"Bavoir à nouer", name_es:"Babero con lazo", price:14.90, link:"https://www.lepetitsouk.fr/p/bavoir-a-nouer-eponge-petites-souris.html" },
-      { id:"lingettes", name_fr:"Lingettes lavables (lot de 5)", name_es:"Toallitas reutilizables (pack de 5)", price:14.90, link:"https://www.lepetitsouk.fr/p/lot-5-lingettes-lavables-eponge-coton-petites-souris.html" },
-      { id:"langes", name_fr:"Lot de langes (x3)", name_es:"Pack de muselinas (3)", price:26, link:"https://www.little-crevette.fr/langes/2242-lot-de-3-langes-bebe-coton-bio-pom-pouce.html" },
-      { id:"gigoteuse", name_fr:"Gigoteuse d'été", name_es:"Saco de dormir de verano", price:59, link:"https://www.little-crevette.fr/gigoteuse-ete/2091-gigoteuse-ete-bebe-percale-de-coton-bio-colin.html" },
-      { id:"tapis-langer", name_fr:"Tapis à langer imperméable", name_es:"Tapete de cambio impermeable", price:39.95, link:"https://www.nobodinoz.com/fr/waterproof-changing-pad-mozart-opera-fruits.html" },
-      { id:"sac-langer", name_fr:"Sac à langer imperméable", name_es:"Bolsa de pañales impermeable", price:89.95, link:"https://www.nobodinoz.com/fr/sac-maternite-opera-green-tea.html" },
-      { id:"peluche-ours", name_fr:"Peluche ours taille moyenne", name_es:"Osito de peluche tamaño mediano", price:30.00, link:"https://fr.jellycat.com/bartholomew-bear/" },
-      { id:"album-photo-tissu", name_fr:"Album photo en tissu bébé", name_es:"Álbum de fotos de tela para bebé", price:22.90, link:"https://www.lepetitsouk.fr/p/album-photo-tissu-bebe-petites-souris.html" },
-      { id:"livre-de-bain", name_fr:"Livre de bain magique", name_es:"Libro de baño mágico", price:12.90, link:"https://www.lepetitsouk.fr/p/livre-de-bain-magique-petites-souris.html" },
-      { id:"protege-carnet-sante", name_fr:"Protège carnet de santé", name_es:"Funda del cuaderno de salud", price:24.90, link:"https://www.lepetitsouk.fr/p/protege-carnet-de-sante-petites-souris.html" },
-      { id:"trousse-toilette", name_fr:"Trousse de toilette", name_es:"Neceser de aseo", price:29.90, link:"https://www.lepetitsouk.fr/p/trousse-toilette-jaune-vanity-petites-souris.html" },
-      {id:"peluche-ours-réconfort",name_fr:" Peluche Ours réconfortante",name_es:"Peluche Oso reconfortante", price: 30, link:"https://fr.jellycat.com/bartholomew-bear-comforter/"}
-    ];
+          { id:"cape-bain", name_fr:"Cape de bain", name_es:"Capa de baño", price:35.90, link:"https://www.lepetitsouk.fr/p/cape-de-bain-eponge-ecru-petites-souris.html" },
+          { id:"gant-toilette", name_fr:"Gant de toilette", name_es:"Manopla de baño", price:10.90, link:"https://www.lepetitsouk.fr/p/gant-de-toilette-ecru-eponge-petites-souris.html" },
+          { id:"bavoir-nouer", name_fr:"Bavoir à nouer", name_es:"Babero con lazo", price:14.90, link:"https://www.lepetitsouk.fr/p/bavoir-a-nouer-eponge-petites-souris.html" },
+          { id:"lingettes", name_fr:"Lingettes lavables (lot de 5)", name_es:"Toallitas reutilizables (pack de 5)", price:14.90, link:"https://www.lepetitsouk.fr/p/lot-5-lingettes-lavables-eponge-coton-petites-souris.html" },
+          { id:"langes", name_fr:"Lot de langes (x3)", name_es:"Pack de muselinas (3)", price:26, link:"https://www.little-crevette.fr/langes/2242-lot-de-3-langes-bebe-coton-bio-pom-pouce.html" },
+          { id:"gigoteuse", name_fr:"Gigoteuse d'été", name_es:"Saco de dormir de verano", price:59, link:"https://www.little-crevette.fr/gigoteuse-ete/2091-gigoteuse-ete-bebe-percale-de-coton-bio-colin.html" },
+          { id:"tapis-langer", name_fr:"Tapis à langer imperméable", name_es:"Tapete de cambio impermeable", price:39.95, link:"https://www.nobodinoz.com/fr/waterproof-changing-pad-mozart-opera-fruits.html" },
+          { id:"sac-langer", name_fr:"Sac à langer imperméable", name_es:"Bolsa de pañales impermeable", price:89.95, link:"https://www.nobodinoz.com/fr/sac-maternite-opera-green-tea.html" },
+          { id:"peluche-ours", name_fr:"Peluche ours taille moyenne", name_es:"Osito de peluche tamaño mediano", price:30.00, link:"https://fr.jellycat.com/bartholomew-bear/" },
+          { id:"album-photo-tissu", name_fr:"Album photo en tissu bébé", name_es:"Álbum de fotos de tela para bebé", price:22.90, link:"https://www.lepetitsouk.fr/p/album-photo-tissu-bebe-petites-souris.html" },
+          { id:"livre-de-bain", name_fr:"Livre de bain magique", name_es:"Libro de baño mágico", price:12.90, link:"https://www.lepetitsouk.fr/p/livre-de-bain-magique-petites-souris.html" },
+          { id:"protege-carnet-sante", name_fr:"Protège carnet de santé", name_es:"Funda del cuaderno de salud", price:24.90, link:"https://www.lepetitsouk.fr/p/protege-carnet-de-sante-petites-souris.html" },
+          { id:"trousse-toilette", name_fr:"Trousse de toilette", name_es:"Neceser de aseo", price:29.90, link:"https://www.lepetitsouk.fr/p/trousse-toilette-jaune-vanity-petites-souris.html" },
+          { id:"peluche-ours-reconfort", name_fr:"Peluche Ours réconfortante", name_es:"Peluche Oso reconfortante", price:30, link:"https://fr.jellycat.com/bartholomew-bear-comforter/" },
+          { id:"chaussettes-souris", name_fr:"Chaussettes souris", name_es:"Calcetines ratoncitos", price:5.90, link:"https://www.lepetitsouk.fr/p/chaussettes-bebe-0-9-mois-petite-souris.html" },
+          { id:"chaussette-escargot", name_fr:"Chaussette escargot", name_es:"Calcetín caracol", price:5.90, link:"https://www.lepetitsouk.fr/p/chaussettes-bebe-escargot-0-6m-la-foret.html" },
+          { id:"bloomer-souris", name_fr:"Bloomer souris", name_es:"Bloomer ratoncitos", price:15.90, link:"https://www.lepetitsouk.fr/p/bloomer-ecru-jaune-0-6-mois-petites-souris.html" },
+          { id:"tee-shirt-souris", name_fr:"Tee-shirt jaune souris 3-6 mois", name_es:"Camiseta amarilla ratoncitos 3-6 meses", price:15.90, link:"https://www.lepetitsouk.fr/p/tee-shirt-jaune-3-6-mois-petites-souris.html" },
+          { id:"lange-souris", name_fr:"Lange souris", name_es:"Musalina ratoncitos", price:9.90, link:"https://www.lepetitsouk.fr/p/lange-ecru-jaune-70-70-cm-petites-souris.html" },
+          { id:"doudou-plat-souris", name_fr:"Doudou plat souris", name_es:"Pañoleta comodín ratoncitos", price:15.99, link:"https://www.lepetitsouk.fr/p/doudou-plat-ecru-jaune-petites-souris.html" }
+        ];
 
     const ACCESS_CODE = "RUNCOL2026!bebeCadeAU";
     const T = {
